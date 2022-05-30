@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cumulative from 1 after page loaded </title>
+
+        <style>
+            div {
+                text-align: center;
+                font-size: 100px;
+                padding: 100px;
+            }
+            
+            button {
+                display: block;
+                margin: 50px auto;
+                width: 500px;
+                height: 100px;
+                font-size: 30px;
+            }
+            
+            span {
+                color: crimson
+            }
+        </style>
+    </head>
+    <body>
+  
+    <button onclick="timeing()">计时开始</button>
+
+    <div id="demo">
+
+    </div>
+
+  <script>
+      var oBody =document.getElementById("demo");
+      var i=0;
+      var bjyx=0
+
+  
+     function update(){
+        var j=i++;
+        oBody.innerHTML = "Time passed: " + "<span>" + j + "</span>" + " s";
+     }
+          
+    
+
+    
+    function timeing(){
+        if(bjyx===0){ 
+        bjyx=1;
+        j=setInterval(update,1000);
+        }
+        else if(bjyx===1){
+            clearInterval(j);
+            bjyx=2;
+        }
+        else if(bjyx===2){
+            j=setInterval(update,1000);
+            bjyx=1;
+        }
+    }
+   
+  </script>           
+
+        
+        
+      
+      
+    </body>
+</html>
